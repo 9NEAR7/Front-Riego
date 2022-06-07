@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Proyecto Riego</title>
+    <script src="./script.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script>
+          // An mqtt variable will be initialized globally
+        console.log(mqtt)
+    </script>
+        
+
 </head>
 <body>
     <header>
@@ -18,18 +26,30 @@
         <h1>Proyecto Sistema de Riego</h1>
     </header>
     <main>
+
+        <div>
+            <h1>Emulador IoT</h1>
+            <h3>Lectura de Variables</h3>
+            <input type="text" name="dispositivo" id="dispositivo">
+            <button id="iniciar">Inicar</button>
+            <button id="detener">Detener</button>
+    
+        </div>
         <div class="container">
             <form action="">
                 <ul>
                     <li>
-                        <label for="texto1">
-                            <span>Entrada 1</span>
-                            <input type="text" id="texto1" placeholder="Texto ejemplo" class="input--text"/>
-                            <button class="main-buton">Enviar</button>
+                        <span>On/Off Aspersor</span>
+                        <div class="buton--on--off">
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>    
+                        </div>
                     </li>
-                    <li>
+                    <!-- <li>
                         <label for="texto2">
-                            <span>Entrada 2</span>
+                            <span>Aspersor 2</span>
                             <input type="text" id="texto2" placeholder="Texto ejemplo"  class="input--text"/>
                             <button class="main-buton">Enviar</button>
                     </li>
@@ -43,11 +63,11 @@
                             <option value="Opcion4"></option>
                         </datalist>
                         <button class="main-buton">Enviar</button>
-                    </li>
+                    </li> -->
                 </ul>
             </form>
         </div>
-        <div class="buton--on--off">
+        <!-- <div class="buton--on--off">
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
@@ -56,45 +76,21 @@
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
-        </div>
-        <div class="container--table">
-            <table class="main--table">
-                <thead>
-                  <tr>
-                    <th>Temperatura</th>
-                    <th>Humedad</th>
-                    <th>Tiempo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+        </div> -->
+        <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Humedad</th>
+                  <th>Temperatura</th>
+                  <th>Aspersor</th>
+                </tr>
+              </thead>
+              <tbody id="data">
+              </tbody>
+            </table>
+          </div>
     </main>
     <footer></footer>
     
